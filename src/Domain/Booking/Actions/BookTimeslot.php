@@ -22,7 +22,7 @@ class BookTimeslot
             }
             $booking = Booking::query()->create([
                 'time_slot_id' => $timeslot->id,
-                'user_id' => 8,
+                'user_id' => auth()->user()->id,
                 'status' => BookingStatus::Pending,
                 'expires_at' => now()->addMinutes(10),
             ]);
